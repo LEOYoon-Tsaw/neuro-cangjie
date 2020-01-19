@@ -28,8 +28,10 @@ The model is written with [TensorFlow](https://www.tensorflow.org) >= 2.0.0, oth
 
 The training and validation result from the last run is shown in this figure below. The less accurate (more loss) line is trained without multi-code predictor, while more accurate (less loss) with it. Cyan lines are in training sets, red lines are in validation sets.
 
-![Accuracy](/Figures/accuracy.svg "Accuracy")
-![Loss](/Figures/loss.svg "Loss")
+<p align="middle">
+  <img src="/Figures/accuracy.svg" alt="Accuracy" width="350"/>
+  <img src="/Figures/loss.svg" alt="Loss" width="350"/>
+</p>
 
 Accuracy (without teacher forcing, mimicking real testing on unseen data) on data in the training set reached 94%, on data in the validation set (which was not used in the training process in any form) reached 87% after 120 epochs, which is good enough to put into actual use.
 
