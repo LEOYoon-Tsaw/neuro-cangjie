@@ -1,7 +1,6 @@
 .vscode
-data/hanazono/*
-data/img/*
-logs/*
+data/fonts/*
+checkpoints/*
 .ipynb_checkpoints
 result.png
 !.keep
