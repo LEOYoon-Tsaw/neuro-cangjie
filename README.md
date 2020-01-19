@@ -26,9 +26,10 @@ To train this model yourself, you need to download [Hanazono](https://fonts.jp/h
 
 The model is written with [TensorFlow](https://www.tensorflow.org) >= 2.0.0, other framework requirements are included in requirements.txt file. It is highly recommended to use a GPU to train this model. Training time with GPU is usually 3-4 hours, and can be longer than 2 days without GPU.
 
-The training and validation result from the last run is shown in this figure below. The left hand side figure is trained without multi-code predictor, while right hand side figure with it. Cyan lines are in training sets, red lines are in validation sets.
+The training and validation result from the last run is shown in this figure below. The less accurate (more loss) line is trained without multi-code predictor, while more accurate (less loss) with it. Cyan lines are in training sets, red lines are in validation sets.
 
 ![Accuracy](/Figures/accuracy.svg "Accuracy")
+![Loss](/Figures/loss.svg "Loss")
 
 Accuracy (without teacher forcing, mimicking real testing on unseen data) on data in the training set reached 94%, on data in the validation set (which was not used in the training process in any form) reached 87% after 120 epochs, which is good enough to put into actual use.
 
