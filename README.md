@@ -35,7 +35,7 @@ The training and validation result from the last run is shown in this figure bel
 
 Accuracy (without teacher forcing, mimicking real testing on unseen data) on data in the training set reached 94%, on data in the validation set (which was not used in the training process in any form) reached 87% after 120 epochs, which is good enough to put into actual use.
 
-And among those wrong predictions in validation, more than 60% correspond to predicted probabilities of 90% or below; more than 90% correspond to predicted probabilities of 99% or below. Whereas among those correct predictions, more than 70% correspond to predicted probabilities of 90% or higher. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions. This result is included in the notebook file.
+And among those wrong predictions in validation, more than 60% correspond to predicted probabilities of 90% or below; more than 90% correspond to predicted probabilities of 99% or below. Whereas among those correct predictions, more than 70% correspond to predicted probabilities of 99% or higher. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions. This result is included in the notebook file.
 
 ## License
 
