@@ -1,7 +1,6 @@
-.vscode
 data/fonts/*
 checkpoints/*
+logs/gradient_tape/20200121-150828/*
 .ipynb_checkpoints
-result.png
 !.keep
 __pycache__
