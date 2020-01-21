@@ -29,11 +29,11 @@ The model is written with [TensorFlow](https://www.tensorflow.org) >= 2.0.0, oth
 The training and validation result from the last run is shown in this figure below as the light blue and red lines. Notice there is a jump at 60 epochs, that's when teacher forcing was turned off. Dark blue and orange lines are from a previous run with teacher forcing always on. The loss on the right from different runs are not comparable, red line has a higher loss because teacher forcing on validation set is always off in the latest run.
 
 <p align="middle">
-  <img src="/Figures/accuracy.svg" alt="Accuracy" width="350"/>
-  <img src="/Figures/loss.svg" alt="Loss" width="350"/>
+  <img src="/Figures/accuracy.svg" alt="Accuracy" title="Accuracy" width="350"/>
+  <img src="/Figures/loss.svg" alt="Loss" title="Loss" width="350"/>
 </p>
 
-In end of this latest run, accuracy on the training set reached 93%, on the validation set (which was not used in the training process in any form) reached 89% after 120 epochs. This is good enough to put into actual use.
+In end of this latest run, accuracy on the training set reached 93%, on the validation set (which was not used in the training process in any form) reached 87% after 120 epochs. This is good enough to put into actual use.
 
 Among those wrong predictions in validation, around 80% correspond to predicted probabilities of 90% or lower. Whereas among those correct predictions, only less than 20% correspond to predicted probabilities of 90% or lower. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions. This result is included in the notebook file.
 
