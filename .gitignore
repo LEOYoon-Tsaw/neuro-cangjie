@@ -4,3 +4,4 @@ logs/gradient_tape/20200121-150828/*
 .ipynb_checkpoints
 !.keep
 __pycache__
+*.v2
