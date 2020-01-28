@@ -5,3 +5,4 @@ logs/gradient_tape/20200121-150828/*
 !.keep
 __pycache__
 *.v2
+Figures/Graph.ai
