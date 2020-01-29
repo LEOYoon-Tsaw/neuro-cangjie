@@ -1,5 +1,6 @@
 data/fonts/*
 checkpoints/*
+Cangjie_Model/*
 logs/gradient_tape/20200121-150828/*
 .ipynb_checkpoints
 !.keep
