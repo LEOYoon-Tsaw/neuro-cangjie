@@ -1,9 +1,8 @@
 data/fonts/*
 checkpoints/*
 Cangjie_Model/*
-logs/gradient_tape/20200121-150828/*
+logs/gradient_tape/2020012*
 .ipynb_checkpoints
 !.keep
 __pycache__
-*.v2
 Figures/Graph.ai

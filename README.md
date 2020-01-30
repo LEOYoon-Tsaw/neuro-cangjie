@@ -22,20 +22,24 @@ There is an extra 5th model (not depicted in the figure above), which is a reduc
 
 ## Training the Model
 
-To train this model yourself, you need to download [Hanazono](https://fonts.jp/hanazono/) fonts, the 2 fonts (A and B) are the only fonts covering all Unicode ideographs. A copy of Cangjie code is already included here ([source](https://github.com/rime-aca/rime-cangjie6)).
+To train this model yourself, you need to download [Hanazono](https://fonts.jp/hanazono/) fonts, the 2 fonts (A and B) are the only fonts covering all Unicode ideographs. A copy of Cangjie code is already included in the data dir ([source](https://github.com/rime-aca/rime-cangjie6)).
 
-The model is written with [TensorFlow](https://www.tensorflow.org) >= 2.0.0, other framework requirements are included in requirements.txt file. It is highly recommended to use a GPU to train this model. Training time with GPU is usually 3-4 hours, and can be longer than 2 days without GPU.
+The model is written with [TensorFlow](https://www.tensorflow.org)   2.1.0, other framework requirements are included in requirements.txt file. It is highly recommended to use a GPU to train this model. Training time with GPU is usually 3-4 hours, and can be longer than 2 days without GPU. In the latest training, 2 GPUs were used, and for multiple GPUs to work parallelly, the mirrored strategy was adopted.
 
-The training and validation result from the last run is shown in this figure below as the light blue and red lines. Notice there is a jump at 60 epochs, that's when teacher forcing was turned off. Dark blue and orange lines are from a previous run with teacher forcing always on. The loss on the right from different runs are not comparable, red line has a higher loss because teacher forcing on validation set is always off in the latest run.
+The training and validation result from the last run is shown in this figure below as the light blue and red lines. From epoch 30-90, teacher forcing fade away gradually, the effect is noticeble in the loss and accuracy figures below. Red lines are on training set, while blue lines are on validation set. Accuracies are on the left, and losses are on the right.
 
 <p align="middle">
   <img src="/Figures/accuracy.svg" alt="Accuracy" title="Accuracy" width="350"/>
   <img src="/Figures/loss.svg" alt="Loss" title="Loss" width="350"/>
 </p>
 
-In end of this latest run, accuracy on the training set reached 93%, on the validation set (which was not used in the training process in any form) reached 87% after 120 epochs. This is good enough to put into actual use.
+In the  end of this latest run, accuracy on the training set reached 96%, on the validation set (which was not used in the training process in any form) reached 86% after 150 epochs. This is good enough to put into actual use.
 
-Among those wrong predictions in validation, around 80% correspond to predicted probabilities of 90% or lower. Whereas among those correct predictions, only less than 20% correspond to predicted probabilities of 90% or lower. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions. This result is included in the notebook file.
+Among those wrong predictions in validation, around 80% correspond to predicted probabilities of 90% or lower. Whereas among those correct predictions, only less than 20% correspond to predicted probabilities of 90% or lower. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions.
+
+## Pretrained Model
+
+A pretrained model is ready in the release page, which can be used directly with `Cangjie6_Evaluate.ipynb` and `Cangjie6_False_Case_Inspector.ipynb`. The former is for visually inspecting predictions, while the latter is for using the model on characters fed in.
 
 ## License
 
