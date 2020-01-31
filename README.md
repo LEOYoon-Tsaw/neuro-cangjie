@@ -26,14 +26,14 @@ To train this model yourself, you need to download [Hanazono](https://fonts.jp/h
 
 The model is written with [TensorFlow](https://www.tensorflow.org)   2.1.0, other framework requirements are included in requirements.txt file. It is highly recommended to use a GPU to train this model. Training time with GPU is usually 3-4 hours, and can be longer than 2 days without GPU. In the latest training, 2 GPUs were used, and for multiple GPUs to work parallelly, the mirrored strategy was adopted.
 
-The training and validation result from the last run is shown in this figure below as the light blue and red lines. From epoch 30-90, teacher forcing fade away gradually, the effect is noticeble in the loss and accuracy figures below. Red lines are on training set, while blue lines are on validation set. Accuracies are on the left, and losses are on the right.
+The training and validation result from the last run is shown in this figure below as below. During epoch 30-90, teacher forcing fade away gradually, the effect is noticeble in the loss and accuracy figures below. Blue lines are on training set, while red lines are on validation set. Accuracies are on the left, and losses are on the right.
 
 <p align="middle">
   <img src="/Figures/accuracy.svg" alt="Accuracy" title="Accuracy" width="350"/>
   <img src="/Figures/loss.svg" alt="Loss" title="Loss" width="350"/>
 </p>
 
-In the  end of this latest run, accuracy on the training set reached 96%, on the validation set (which was not used in the training process in any form) reached 86% after 150 epochs. This is good enough to put into actual use.
+In the end of this latest run, accuracy on the training set reached 96%, on the validation set (which was not used in the training process in any form) reached 86% after 150 epochs. This is good enough to put into actual use. The light blue - dark red combination are trained on 128 × 128 × 1 image data, although achieved quicker convergence and lower loss, the accuracy didn't improve.
 
 Among those wrong predictions in validation, around 80% correspond to predicted probabilities of 90% or lower. Whereas among those correct predictions, only less than 20% correspond to predicted probabilities of 90% or lower. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions.
 
