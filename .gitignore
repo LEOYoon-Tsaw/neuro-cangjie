@@ -6,3 +6,6 @@ logs/gradient_tape/2020012*
 !.keep
 __pycache__
 Figures/Graph.ai
+logs/gradient_tape/20200131-211443/test/events.out.tfevents.1580523283.LEOs.local.24270.61.v2
+logs/gradient_tape/20200131-211443/train/events.out.tfevents.1580523283.LEOs.local.24270.53.v2
+*.v2
