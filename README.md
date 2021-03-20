@@ -20,20 +20,23 @@ The decoder is a RNN, starting from an indication of 'start', it predict the nex
 
 There is an extra 5th model (not depicted in the figure above), which is a reduced decoder, used in the first step training. The whole training process is divided into 2 steps, during the first, the reduced decoder is used to focus the training of encoder. After 20 epochs, the full decoder starts to train, replacing the reduced one. This 2 steps training process increases the robustness and reduces the total training time.
 
+Activation function is a smoothed P-ReLU like function shown below, inc which alpha is trainable.
+<img src="https://render.githubusercontent.com/render/math?math=\frac{1}{2}\left(\log\left(e^{2\alpha x}+e^{2x}\right)-\log 2\right)">
+
 ## Training the Model
 
 To train this model yourself, you may need to download [Hanazono](https://fonts.jp/hanazono/) fonts, the 2 fonts (A and B) are the only fonts covering all Unicode ideographs. Although the current model is trained on a alternative to Hanazono fonts. A copy of Cangjie code is already included in the data dir ([source](https://github.com/rime-aca/rime-cangjie6)).
 
-The model is written with [TensorFlow](https://www.tensorflow.org)   2.2, other framework requirements are included in requirements.txt file. It is highly recommended to use a GPU to train this model. Training time with GPU is usually 3-6 hours, and can be longer than 2 days without GPU. In the latest training, 1 GPUs were used, and multiple GPUs is supported with the mirrored strategy adopted.
+The model is written with [TensorFlow](https://www.tensorflow.org)   2.3, other framework requirements are included in requirements.txt file. It is highly recommended to use a GPU to train this model. Training time with GPU is usually 3-6 hours, and can be longer than 2 days without GPU. In the latest training, 1 GPUs were used, and multiple GPUs is supported with the mirrored strategy adopted.
 
-The training and validation result from the last run is shown in this figure below as below. During epoch 30-90, teacher forcing fade away gradually, the effect is noticeble in the loss and accuracy figures below. Blue lines are on training set, while red lines are on validation set. Accuracies are on the left, and losses are on the right.
+The training and validation result from the last run is shown in this figure below as below. During epoch 30-90, teacher forcing fade away gradually, the effect is noticeble in the loss and accuracy figures below. Cyan lines are on training set, magenta lines are on validation set. Accuracies are on the left, and losses are on the right.
 
 <p align="middle">
   <img src="/Figures/accuracy.svg" alt="Accuracy" title="Accuracy" width="350"/>
   <img src="/Figures/loss.svg" alt="Loss" title="Loss" width="350"/>
 </p>
 
-In the end of this latest run, accuracy on the training set reached 93%, on the validation set (which was not used in the training process in any form) reached 84% after 150 epochs. This is good enough to put into actual use.
+In the end of this latest run, accuracy on the training set reached 98%, on the validation set (which was not used in the training process in any form) reached 85% after 150 epochs. This is good enough to put into actual use.
 
 Among those wrong predictions in validation, around 80% correspond to predicted probabilities of 90% or lower. Whereas among those correct predictions, only less than 20% correspond to predicted probabilities of 90% or lower. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions.
 
