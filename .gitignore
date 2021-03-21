@@ -1,4 +1,5 @@
 data/fonts/*
+data/cangjie6_encoded.txt
 checkpoints/*
 Cangjie_Model/*
 .ipynb_checkpoints

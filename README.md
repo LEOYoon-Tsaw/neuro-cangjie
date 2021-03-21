@@ -20,7 +20,7 @@ The decoder is a RNN, starting from an indication of 'start', it predict the nex
 
 There is an extra 5th model (not depicted in the figure above), which is a reduced decoder, used in the first step training. The whole training process is divided into 2 steps, during the first, the reduced decoder is used to focus the training of encoder. After 20 epochs, the full decoder starts to train, replacing the reduced one. This 2 steps training process increases the robustness and reduces the total training time.
 
-Activation function is a smoothed P-ReLU like function shown below, inc which alpha is trainable.
+Activation function is a smoothed P-ReLU like function shown below, in which alpha is trainable.
 
 ![Activation Function](/Figures/equation.svg "Smooth PReLU")
 
@@ -37,7 +37,7 @@ The training and validation result from the last run is shown in this figure bel
   <img src="/Figures/loss.svg" alt="Loss" title="Loss" width="350"/>
 </p>
 
-In the end of this latest run, accuracy on the training set reached 98%, on the validation set (which was not used in the training process in any form) reached 85% after 150 epochs. This is good enough to put into actual use.
+In the end of this latest run, accuracy on the training set reached 98%, on the validation set (which was not used in the training process in any form) reached 86% after 150 epochs. This is good enough to put into actual use.
 
 Among those wrong predictions in validation, around 80% correspond to predicted probabilities of 90% or lower. Whereas among those correct predictions, only less than 20% correspond to predicted probabilities of 90% or lower. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions.
 
