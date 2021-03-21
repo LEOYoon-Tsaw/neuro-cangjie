@@ -21,7 +21,8 @@ The decoder is a RNN, starting from an indication of 'start', it predict the nex
 There is an extra 5th model (not depicted in the figure above), which is a reduced decoder, used in the first step training. The whole training process is divided into 2 steps, during the first, the reduced decoder is used to focus the training of encoder. After 20 epochs, the full decoder starts to train, replacing the reduced one. This 2 steps training process increases the robustness and reduces the total training time.
 
 Activation function is a smoothed P-ReLU like function shown below, inc which alpha is trainable.
-<img src="https://render.githubusercontent.com/render/math?math=\frac{1}{2}\left(\log\left(e^{2\alpha x}+e^{2x}\right)-\log 2\right)">
+
+![Activation Function](/Figures/equation.svg "Smooth PReLU")
 
 ## Training the Model
 
