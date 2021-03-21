@@ -41,7 +41,7 @@ The training and validation results from the latest run is shown in this figure 
 
 In the end of this latest run, accuracy on the training set reaches 98%, on the validation set reached 86% after 150 epochs. This is good enough to put into practical use.
 
-Among those wrong predictions in validation set, around 80% correspond to predicted probabilities of 95% or lower. Whereas among those correct predictions, only less than 16% correspond to predicted probabilities of 95% or lower. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions.
+Among those wrong predictions in validation set, around 90% correspond to predicted probabilities of 99% or lower. Whereas among those correct predictions, only 20% correspond to predicted probabilities of 99% or lower. So, in addition to a predictions themselves, the predicted probabilities can be a good indicator of the correctness of predictions.
 
 ## Pretrained Model
 
